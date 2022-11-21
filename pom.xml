@@ -20,16 +20,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.1.5.Final</version>
-            <type>pom</type>
-        </dependency>
+          </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.0</version>
         </dependency>
-
-
     </dependencies>
 
 </project>
