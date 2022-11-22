@@ -1,58 +1,64 @@
 package com.geekbrains.repository;
 
+import com.geekbrains.model.Order;
 import com.geekbrains.model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import java.util.List;
 
-public class ProductDAO implements CRUDRepository<Product, Long> {
+public class OrderDAO implements CRUDRepository<Order, Long> {
+
     private final SessionFactory sessionFactory;
 
-
-    public ProductDAO() {
+    public OrderDAO() {
         sessionFactory = SessionFactoryUtils.getSessionFactory();
     }
     @Override
-    public void save(Product product) {
+    public void save(Order order) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.save(product);
+        session.save(order);
         session.getTransaction().commit();
+
     }
+
     @Override
     public void deleteById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-//        Product product = session.get(Product.class, id);
-        Product product = session.createQuery("SELECT p FROM Product p WHERE p.id = :id", Product.class)
+        Order order = session.createQuery("SELECT o FROM Order o WHERE o.id = :id", Order.class)
                 .setParameter("id", id)
                 .getSingleResult();
-        session.remove(product);
+        session.remove(order);
         session.getTransaction().commit();
     }
+
     @Override
-    public void update(Product product) {
+    public void update(Order order) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.merge(product);
+        session.merge(order);
         session.getTransaction().commit();
     }
+
     @Override
-    public Product findById(Long id) {
+    public Order findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Product productFromDb = session.get(Product.class, id);
+        Order orderFromDb = session.get(Order.class, id);
         session.getTransaction().commit();
-        return productFromDb;
+        return orderFromDb;
     }
+
     @Override
-    public List<Product> findAll() {
-        List<Product> products;
+    public List<Order> findAll() {
+        List<Order> orders;
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        products = session.createQuery("SELECT p FROM Product p", Product.class).getResultList();
+        orders = session.createQuery("SELECT o FROM Order o", Order.class).getResultList();
         session.getTransaction().commit();
-        return products;
+        return orders;
     }
 
     public void close() {
@@ -60,7 +66,4 @@ public class ProductDAO implements CRUDRepository<Product, Long> {
             sessionFactory.close();
         }
     }
-
-
-
 }

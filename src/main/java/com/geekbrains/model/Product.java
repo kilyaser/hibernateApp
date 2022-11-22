@@ -1,6 +1,8 @@
 package com.geekbrains.model;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -14,6 +16,9 @@ public class Product {
     private String title;
     @Column(name = "cost")
     private int cost;
+
+   @OneToMany(mappedBy = "product")
+   private List<Order> orders;
 
     public Product() {
     }

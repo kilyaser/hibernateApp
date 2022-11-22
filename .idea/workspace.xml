@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9615d34f-4fd9-4bc4-b282-b410155823cf" name="Changes" comment="added solution task 1, 2." />
+    <list default="true" id="9615d34f-4fd9-4bc4-b282-b410155823cf" name="Changes" comment="refactored code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/CRUDRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/OrderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/SessionFactoryUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/HibernateApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/HibernateApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/repository/ProductDAO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -42,7 +55,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Hobby/BeekBrain/GB_Spring_1/spring-mvc"
+    "last_opened_file_path": "C:/Hobby/BeekBrain/GB_Spring_1/hibernateApp"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -81,6 +94,8 @@
       <workItem from="1668675963408" duration="2060000" />
       <workItem from="1668685695163" duration="3546000" />
       <workItem from="1668708236140" duration="3800000" />
+      <workItem from="1669027136691" duration="5846000" />
+      <workItem from="1669103971993" duration="3766000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1668677546225</created>
@@ -96,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668711453441</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactored code">
+      <created>1669027294772</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669027294772</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="added solution task 1, 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="added solution task 1, 2." />
+    <MESSAGE value="refactored code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored code" />
   </component>
 </project>
