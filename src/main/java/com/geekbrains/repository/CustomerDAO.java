@@ -1,58 +1,62 @@
 package com.geekbrains.repository;
 
-import com.geekbrains.model.Product;
+import com.geekbrains.model.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import java.util.List;
 
-public class ProductDAO implements CRUDRepository<Product, Long> {
-    private final SessionFactory sessionFactory;
+public class CustomerDAO implements CRUDRepository<Customer, Long>{
+    private SessionFactory sessionFactory;
 
-
-    public ProductDAO() {
+    public CustomerDAO() {
         sessionFactory = SessionFactoryUtils.getSessionFactory();
     }
     @Override
-    public void save(Product product) {
+    public void save(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.save(product);
+        session.save(customer);
         session.getTransaction().commit();
+
     }
+
     @Override
     public void deleteById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-//        Product product = session.get(Product.class, id);
-        Product product = session.createQuery("SELECT p FROM Product p WHERE p.id = :id", Product.class)
+        session.createQuery("SELECT c FROM Customer  c WHERE c.id = :id", Customer.class)
                 .setParameter("id", id)
                 .getSingleResult();
-        session.remove(product);
         session.getTransaction().commit();
+
     }
+
     @Override
-    public void update(Product product) {
+    public void update(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.merge(product);
+        session.update(customer);
         session.getTransaction().commit();
+
     }
+
     @Override
-    public Product findById(Long id) {
+    public Customer findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Product productFromDb = session.get(Product.class, id);
+        Customer customer = session.get(Customer.class, id);
         session.getTransaction().commit();
-        return productFromDb;
+        return customer;
     }
+
     @Override
-    public List<Product> findAll() {
-        List<Product> products;
+    public List<Customer> findAll() {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        products = session.createQuery("SELECT p FROM Product p", Product.class).getResultList();
+        List<Customer> customers = session.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
         session.getTransaction().commit();
-        return products;
+        return customers;
     }
 
     public void close() {
@@ -60,7 +64,4 @@ public class ProductDAO implements CRUDRepository<Product, Long> {
             sessionFactory.close();
         }
     }
-
-
-
 }
